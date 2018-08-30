@@ -27,7 +27,6 @@ export default class MythTVAPI {
                 });
                 res.on("end", () => {
                     xml2js.parseString(body, (err, result) => {
-                        console.log(err, result);
                         if (err) {
                             errCallback(err);
                         } else {

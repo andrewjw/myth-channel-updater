@@ -1,6 +1,7 @@
-var gulp = require('gulp');
-var ts = require('gulp-typescript');
-var tslint = require('gulp-tslint');
+const gulp = require('gulp');
+const ts = require('gulp-typescript');
+const tslint = require('gulp-tslint');
+const mocha = require('gulp-mocha');
 
 gulp.task('default', ['lint', 'build']);
 
@@ -29,6 +30,14 @@ gulp.task('build-frontend', builder('frontend', true, 'main/static'));
 
 gulp.task('build-mock', builder('mock', false, 'mock'));
 
+gulp.task('build-tests', function () {
+    return gulp.src(['src/backend/**/*.ts', 'test/**/*.ts'], { base: '.' })
+        .pipe(ts({
+            noImplicitAny: true,
+        }))
+        .pipe(gulp.dest('out/tests'));
+})
+
 gulp.task('lint', function () {
     return gulp.src("src/**/*.ts")
         .pipe(tslint({
@@ -37,5 +46,7 @@ gulp.task('lint', function () {
         .pipe(tslint.report());
 });
 
-gulp.task('test', ['lint', 'build'], function () {
+gulp.task('test', ['lint', 'build', 'build-tests'], function () {
+    gulp.src('out/tests/test/**/*.js', { read: false })
+        .pipe(mocha({ reporter: 'spec' }))
 });
