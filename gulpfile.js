@@ -4,7 +4,7 @@ var tslint = require('gulp-tslint');
 
 gulp.task('default', ['lint', 'build']);
 
-gulp.task('build', ['build-server', 'build-frontend', 'build-mock']);
+gulp.task('build', ['build-backend', 'build-frontend', 'build-mock']);
 
 function builder(build_type, out_file, out_dir) {
     var opts = {
@@ -23,16 +23,19 @@ function builder(build_type, out_file, out_dir) {
     }
 }
 
-gulp.task('build-server', builder('server', false, 'main'));
+gulp.task('build-backend', builder('backend', false, 'main'));
 
 gulp.task('build-frontend', builder('frontend', true, 'main/static'));
 
 gulp.task('build-mock', builder('mock', false, 'mock'));
 
 gulp.task('lint', function () {
-    gulp.src("src/**/*.ts")
+    return gulp.src("src/**/*.ts")
         .pipe(tslint({
             formatter: "verbose"
         }))
-        .pipe(tslint.report())
+        .pipe(tslint.report());
+});
+
+gulp.task('test', ['lint', 'build'], function () {
 });
