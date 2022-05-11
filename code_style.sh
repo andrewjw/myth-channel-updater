@@ -2,4 +2,4 @@
 
 set -e
 
-pycodestyle bin/ mythchannel/ tests/
+pycodestyle bin/ mythchannels/ tests/
