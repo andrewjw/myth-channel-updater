@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.0.3 (2022-05-11)
+### Fix
+* More build fixes. ([`29c56a8`](https://github.com/andrewjw/myth-channel-updater/commit/29c56a881d81f4c35855e9e268df0982fdbc184f))
+
 ## v0.0.2 (2022-05-11)
 ### Fix
 * Deafult branch name is wrong. ([`40bb6c7`](https://github.com/andrewjw/myth-channel-updater/commit/40bb6c7d47b369955dd35914ca6294003fd582f5))
