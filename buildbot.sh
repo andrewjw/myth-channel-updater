@@ -9,7 +9,7 @@ pip3 install -r requirements.txt
 
 BRANCH=$(git rev-parse --abbrev-ref HEAD)
 echo "Building branch $BRANCH"
-if [[ "$BRANCH" == "main" ]]; then
+if [[ "$BRANCH" == "master" ]]; then
   COVERALLS_REPO_TOKEN=$MYTHCHANNEL_COVERALLS_REPO_TOKEN coveralls
   semantic-release publish
 fi
