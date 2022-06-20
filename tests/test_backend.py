@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 # myth-channel-updater
 # Copyright (C) 2022 Andrew Wilkinson
 #
@@ -15,4 +14,26 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from .test_backend import TestMythTVBackend
+import unittest
+
+import responses
+
+from mythchannels import MythTVBackend
+
+
+class TestMythTVBackend(unittest.TestCase):
+    @responses.activate
+    def test_channels_single_page(self):
+        responses.get(
+            url="http://mythbackend/Channel/GetChannelInfoList?" +
+                "SourceId=1&Details=true&OnlyVisible=false" +
+                "&StartIndex=0&Count=100",
+            body=open("mock/channel_info_list.xml").read()
+        )
+
+        backend = MythTVBackend("http://mythbackend")
+
+        channels = backend.get_channel_info_list(1)
+
+        self.assertEqual(1, len(channels))
+        self.assertEqual("NBC5-US", channels[0].channel_name)

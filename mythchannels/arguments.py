@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 # myth-channel-updater
 # Copyright (C) 2022 Andrew Wilkinson
 #
@@ -15,4 +14,19 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from .test_backend import TestMythTVBackend
+
+import argparse
+
+
+parser = argparse.ArgumentParser(
+    description='A script to handle the maintenance of MythTV channels.')
+parser.add_argument('--host', type=str, nargs='?',
+                    default="localhost",
+                    help='the host name to connect to')
+
+parser.add_argument('--commit', action="store_true", default=False,
+                    help='apply the updates')
+
+
+def get_arguments(args):
+    return parser.parse_args(args)

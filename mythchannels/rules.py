@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 # myth-channel-updater
 # Copyright (C) 2022 Andrew Wilkinson
 #
@@ -15,4 +14,18 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from .test_backend import TestMythTVBackend
+import yaml
+
+from .channel import Channel
+from .rule import Rule
+
+
+class Rules:
+    def __init__(self, fn: str) -> None:
+        with open(fn) as yaml_fp:
+            self.rules = [Rule(r["match"], r["set"]) for r
+                          in yaml.safe_load(yaml_fp)]
+
+    def match(self, channel: Channel) -> bool:
+        r = [rule.match(channel) for rule in self.rules]
+        return any(r)

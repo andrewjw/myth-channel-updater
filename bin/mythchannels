@@ -15,5 +15,38 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+import sys
+
+from mythchannels.arguments import get_arguments
+from mythchannels.backend import MythTVBackend
+from mythchannels.rules import Rules
+
+def main(raw_args):
+    args = get_arguments(raw_args[1:])
+
+    backend = MythTVBackend("http://192.168.1.12:6544")
+    channels = backend.get_channel_info_list(1) \
+               + backend.get_channel_info_list(2)
+
+    rules = Rules("channels.yml")
+
+    for channel in channels:
+        channel["visible"] = True
+        rules.match(channel)
+
+
+    for channel in channels:
+        if len(channel.set_values) == 0:
+            continue
+
+        if args.commit:
+            setters = ", ".join(sorted(f"{k}={v}" for (k, v) in channel.set_values.items()))
+            print(f"{channel}. Setting {setters}")
+
+            backend.update_channel(channel)
+        else:
+            setters = ", ".join(sorted(f"{k}={v}" for (k, v) in channel.set_values.items()))
+            print(f"{channel}. Would set {setters}")
+
 if __name__ == "__main__":
-    print("myth-channel-updater")
+    main(sys.argv)
