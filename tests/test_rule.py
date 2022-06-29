@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 # myth-channel-updater
 # Copyright (C) 2022 Andrew Wilkinson
 #
@@ -15,8 +14,25 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-__version__ = "0.0.3"
+import unittest
+from xml.dom.minidom import parseString
 
-from .backend import MythTVBackend
-from .channel import Channel
-from .rule import Rule
+from mythchannels import Channel, Rule
+
+
+class TestRule(unittest.TestCase):
+    def setUp():
+        doc = parseString(open("mock/channel_info_list.xml").read())
+
+        self.channel = [Channel(node) for node
+                        in doc.getElementsByTagName("ChannelInfo")][0]
+
+    def test_default_comparison(self):
+        rule = Rule({ "channel_name": "NBC5-US"}, { "channel_name": "RuleMatched" })
+
+        self.assertTrue(rule.match(self.channel))
+
+    def test_default_comparison_false(self):
+        rule = Rule({ "channel_name": "BBC One"}, { "channel_name": "RuleMatched" })
+
+        self.assertFalse(rule.match(self.channel))

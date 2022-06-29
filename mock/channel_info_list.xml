@@ -33,9 +33,10 @@
         <CommFree>0</CommFree>
         <UseEIT>false</UseEIT>
         <Visible>false</Visible>
+        <ExtendedVisible> NotVisible</ExtendedVisible>
         <XMLTVID/><DefaultAuth/>
         <Programs/>
         </ChannelInfo>
-        </ChannelInfos>
-    </ChannelInfoList>
+    </ChannelInfos>
+</ChannelInfoList>
     
