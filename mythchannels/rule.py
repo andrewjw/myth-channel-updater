@@ -49,7 +49,7 @@ class Rule:
                 elif value == self.matchers[matcher]:
                     return False
             elif comp == "re":
-                if not re.match(self.matchers[matcher], value, re.IGNORECASE):
+                if re.match(self.matchers[matcher], value, re.IGNORECASE) is None:
                     return False
             else:
                 raise ValueError(f"Unknown comparison operator: {comp}")
