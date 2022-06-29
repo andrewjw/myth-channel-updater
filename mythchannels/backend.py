@@ -45,24 +45,25 @@ class MythTVBackend:
             start += len(channelpage)
 
     def update_channel(self, channel: Channel) -> None:
-        r = requests.post(self.backend + "/Channel/UpdateDBChannel",
-            {
-                "ATSCMajorChannel": channel.get("atsc_major_chan"),
-                "ATSCMinorChannel": channel.get("atsc_minor_chan"),
-                "CallSign": channel.get("call_sign"),
-                "ChannelID": channel.get("chan_id"),
-                "ChannelName": channel.get("channel_name"),
-                "ChannelNumber": channel.get("chan_num"),
-                "DefaultAuthority": channel.get("default_auth"),
-                "ExtraVisible": "Visible" if channel.get("extra_visible") else "NotVisible",
-                "Format": channel.get("format"),
-                "FrequencyID": channel.get("frequency_id"),
-                "Icon": channel.get("icon_url"),
-                "MplexID": channel.get("mplex_id"),
-                "ServiceID": channel.get("service_id"),
-                "SourceID": channel.get("source_id"),
-                "UseEIT": channel.get("use_eit"),
-                "XMLTVID": channel.get("xml_tv_id"),
-                "Visible": channel.get("visible"),
-            })
+        data = {
+                    "ATSCMajorChannel": channel.get("atsc_major_chan"),
+                    "ATSCMinorChannel": channel.get("atsc_minor_chan"),
+                    "CallSign": channel.get("call_sign"),
+                    "ChannelID": channel.get("chan_id"),
+                    "ChannelName": channel.get("channel_name"),
+                    "ChannelNumber": channel.get("chan_num"),
+                    "DefaultAuthority": channel.get("default_auth"),
+                    "ExtraVisible": "Visible" if channel.get("extra_visible")
+                                    else "NotVisible",
+                    "Format": channel.get("format"),
+                    "FrequencyID": channel.get("frequency_id"),
+                    "Icon": channel.get("icon_url"),
+                    "MplexID": channel.get("mplex_id"),
+                    "ServiceID": channel.get("service_id"),
+                    "SourceID": channel.get("source_id"),
+                    "UseEIT": channel.get("use_eit"),
+                    "XMLTVID": channel.get("xml_tv_id"),
+                    "Visible": channel.get("visible"),
+                }
+        r = requests.post(self.backend + "/Channel/UpdateDBChannel", data)
         r.raise_for_status()

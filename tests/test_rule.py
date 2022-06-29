@@ -21,18 +21,20 @@ from mythchannels import Channel, Rule
 
 
 class TestRule(unittest.TestCase):
-    def setUp():
+    def setUp(self):
         doc = parseString(open("mock/channel_info_list.xml").read())
 
         self.channel = [Channel(node) for node
                         in doc.getElementsByTagName("ChannelInfo")][0]
 
     def test_default_comparison(self):
-        rule = Rule({ "channel_name": "NBC5-US"}, { "channel_name": "RuleMatched" })
+        rule = Rule({"channel_name": "NBC5-US"},
+                    {"channel_name": "RuleMatched"})
 
         self.assertTrue(rule.match(self.channel))
 
     def test_default_comparison_false(self):
-        rule = Rule({ "channel_name": "BBC One"}, { "channel_name": "RuleMatched" })
+        rule = Rule({"channel_name": "BBC One"},
+                    {"channel_name": "RuleMatched"})
 
         self.assertFalse(rule.match(self.channel))

@@ -37,19 +37,22 @@ class Rule:
             value = getattr(channel, field)
 
             if comp == "eq":
-                if isinstance(value, str) and isinstance(self.matchers[matcher], str):
+                if isinstance(value, str) \
+                   and isinstance(self.matchers[matcher], str):
                     if value.lower() != self.matchers[matcher].lower():
                         return False
                 elif value != self.matchers[matcher]:
                     return False
             elif comp == "neq":
-                if isinstance(value, str) and isinstance(self.matchers[matcher], str):
+                if isinstance(value, str) \
+                   and isinstance(self.matchers[matcher], str):
                     if value.lower() == self.matchers[matcher].lower():
                         return False
                 elif value == self.matchers[matcher]:
                     return False
             elif comp == "re":
-                if re.match(self.matchers[matcher], value, re.IGNORECASE) is None:
+                if re.match(self.matchers[matcher],
+                            value, re.IGNORECASE) is None:
                     return False
             else:
                 raise ValueError(f"Unknown comparison operator: {comp}")

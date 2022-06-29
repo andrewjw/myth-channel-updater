@@ -62,22 +62,30 @@ class Channel:
         # self.transport_id = get_text_from_tag_name(xml_node, "TransportId")
         self.service_id = int(get_text_from_tag_name(xml_node, "ServiceId"))
         # self.network_id = int(get_text_from_tag_name(xml_node, "NetworkId"))
-        self.atsc_major_chan = int(get_text_from_tag_name(xml_node, "ATSCMajorChan"))
-        self.atsc_minor_chan = int(get_text_from_tag_name(xml_node, "ATSCMinorChan"))
+        self.atsc_major_chan = \
+            int(get_text_from_tag_name(xml_node, "ATSCMajorChan"))
+        self.atsc_minor_chan = \
+            int(get_text_from_tag_name(xml_node, "ATSCMinorChan"))
         self.format = get_text_from_tag_name(xml_node, "Format")
         # self.modulation = get_text_from_tag_name(xml_node, "Modulation")
         # self.frequency = int(get_text_from_tag_name(xml_node, "Frequency"))
         self.frequency_id = get_text_from_tag_name(xml_node, "FrequencyId")
-        # self.frequency_table = get_text_from_tag_name(xml_node, "FrequencyTable")
+        # self.frequency_table = \
+        # get_text_from_tag_name(xml_node, "FrequencyTable")
         self.fine_tune = int(get_text_from_tag_name(xml_node, "FineTune"))
         # self.si_standard = get_text_from_tag_name(xml_node, "SIStandard")
         self.channel_filers = get_text_from_tag_name(xml_node, "ChanFilters")
         self.source_id = int(get_text_from_tag_name(xml_node, "SourceId"))
         self.input_id = int(get_text_from_tag_name(xml_node, "InputId"))
-        self.comm_free = get_text_from_tag_name(xml_node, "CommFree").lower() == "true"
-        self.use_eit = get_text_from_tag_name(xml_node, "UseEIT").lower() == "true"
-        self.extra_visible = get_text_from_tag_name(xml_node, "ExtendedVisible").lower() == "visible"
-        self.visible = get_text_from_tag_name(xml_node, "Visible").lower() == "true"
+        self.comm_free = \
+            get_text_from_tag_name(xml_node, "CommFree").lower() == "true"
+        self.use_eit = \
+            get_text_from_tag_name(xml_node, "UseEIT").lower() == "true"
+        self.extra_visible = \
+            get_text_from_tag_name(xml_node, "ExtendedVisible").lower() \
+            == "visible"
+        self.visible = \
+            get_text_from_tag_name(xml_node, "Visible").lower() == "true"
         self.xml_tv_id = get_text_from_tag_name(xml_node, "XMLTVID")
         self.default_auth = get_text_from_tag_name(xml_node, "DefaultAuth")
 
@@ -96,4 +104,5 @@ class Channel:
             del self.set_values[__name]
 
     def __str__(self) -> str:
-        return f"{self.chan_id} {self.chan_num} {self.channel_name} {self.call_sign} ({self.source_id}:{self.service_id})"
+        return f"{self.chan_id} {self.chan_num} {self.channel_name}" + \
+               f" {self.call_sign} ({self.source_id}:{self.service_id})"
