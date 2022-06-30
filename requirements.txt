@@ -1,5 +1,5 @@
 pycodestyle==2.8.0
-coverage==4.5.4
+coverage==6.4.1
 python-coveralls==2.9.3
 python-semantic-release==7.29.4
 requests==2.27.1
