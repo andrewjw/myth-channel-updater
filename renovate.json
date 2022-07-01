@@ -3,4 +3,5 @@
     "config:base"
   ],
   "automerge": true,
+  "ignoreDeps": ["python-semantic-release"]
 }
