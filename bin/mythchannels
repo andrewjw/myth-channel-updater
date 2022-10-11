@@ -26,7 +26,7 @@ def main(raw_args):
 
     backend = MythTVBackend("http://192.168.1.12:6544")
     channels = backend.get_channel_info_list(1) \
-               + backend.get_channel_info_list(2)
+               + backend.get_channel_info_list(3)
 
     rules = Rules("channels.yml")
 

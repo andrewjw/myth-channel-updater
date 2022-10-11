@@ -54,6 +54,12 @@ class Rule:
                 if re.match(self.matchers[matcher],
                             value, re.IGNORECASE) is None:
                     return False
+            elif comp == "in":
+                if value not in self.matchers[matcher]:
+                    return False
+            elif comp == "nin":
+                if value in self.matchers[matcher]:
+                    return False
             else:
                 raise ValueError(f"Unknown comparison operator: {comp}")
 

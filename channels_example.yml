@@ -1,4 +1,24 @@
 - match:
-    channel_name__re: "BBC.*"
+    channel_name__re: ^More ?4$
   set:
-    comm_free: false
+    chan_num: "12"
+    channel_name: "More 4"
+    call_sign: "More 4"
+- match:
+    channel_name__re: ^More ?4\+1$
+  set:
+    chan_num: "13"
+    channel_name: "More 4+1"
+    call_sign: "More 4+1"
+    
+- match:
+    source_id: 1
+    mplex_id__nin:
+      - 7
+      - 235
+      - 271
+      - 245
+      - 236
+      - 237
+  set:
+    visible: False
