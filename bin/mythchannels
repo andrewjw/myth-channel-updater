@@ -26,7 +26,8 @@ def main(raw_args):
 
     backend = MythTVBackend("http://192.168.1.12:6544")
     channels = backend.get_channel_info_list(1) \
-               + backend.get_channel_info_list(3)
+               + backend.get_channel_info_list(3) \
+               + backend.get_channel_info_list(6)
 
     rules = Rules("channels.yml")
 
@@ -34,8 +35,14 @@ def main(raw_args):
         channel["visible"] = True
         rules.match(channel)
 
+    chan_dups = {}
 
     for channel in channels:
+        if channel.get("visible"):
+            if channel.get("chan_num") not in chan_dups:
+                chan_dups[channel.chan_num] = set()
+            chan_dups[channel.chan_num].add(channel.get("channel_name"))
+
         if len(channel.set_values) == 0:
             continue
 
@@ -47,6 +54,12 @@ def main(raw_args):
         else:
             setters = ", ".join(sorted(f"{k}={v}" for (k, v) in channel.set_values.items()))
             print(f"{channel}. Would set {setters}")
+
+    if any([len(v) > 1 for v in chan_dups.values()]):
+       print("The following channel numbers have multiple channels, with different names.")
+       for num, names in chan_dups.items():
+           if len(names) > 1:
+               print(f"{num} - {sorted(names)}")
 
 if __name__ == "__main__":
     main(sys.argv)
