@@ -65,5 +65,7 @@ class MythTVBackend:
                     "XMLTVID": channel.get("xml_tv_id"),
                     "Visible": channel.get("visible"),
                 }
+        if channel.get("comm_free") is not None:
+            data["CommMethod"] = -2 if channel.get("comm_free") else -1
         r = requests.post(self.backend + "/Channel/UpdateDBChannel", data)
         r.raise_for_status()

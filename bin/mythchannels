@@ -41,7 +41,7 @@ def main(raw_args):
 
     for channel in channels:
         if channel.get("visible"):
-            if channel.get("chan_num") not in chan_dups:
+            if channel.chan_num not in chan_dups:
                 chan_dups[channel.chan_num] = set()
             chan_dups[channel.chan_num].add(channel.get("channel_name"))
 
