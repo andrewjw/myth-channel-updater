@@ -1,0 +1,739 @@
+- match:
+    channel_name__re: ^BBC.*$
+  set:
+    comm_free: True
+- match:
+    channel_name__re: ^ITV ?2$
+  set:
+    chan_num: "6"
+- match:
+    channel_name: BBC Three
+  set:
+    chan_num: "7"
+- match:
+    channel_name: Sky Arts
+  set:
+    chan_num: "11"
+- match:
+    channel_name: Sky Arts
+    source_id: 6
+    service_id: 5229
+  set:
+    visible: False
+- match:
+    channel_name__re: ^More ?4$
+  set:
+    chan_num: "12"
+    channel_name: "More 4"
+    call_sign: "More 4"
+- match:
+    channel_name__re: ^More ?4\+1$
+  set:
+    chan_num: "13"
+    channel_name: "More 4+1"
+    call_sign: "More 4+1"
+- match:
+    channel_name__re: ^Film ?4$
+  set:
+    chan_num: "14"
+    channel_name: "Film4"
+    call_sign: "Film4"
+- match:
+    channel_name__re: ^Film ?4 ?\+1$
+  set:
+    chan_num: "15"
+    channel_name: "Film4+1"
+    call_sign: "Film4+1"
+- match:
+    channel_name: Channel 4+1
+  set:
+    chan_num: "16"
+- match:
+    channel_name: Channel 4+1
+    source_id: 6
+    service_id__neq: 8452
+  set:
+    visible: False
+- match:
+    channel_name: Quest
+  set:
+    chan_num: "17"
+- match:
+    channel_name: Quest
+    source_id: 6
+    service_id: 53235
+  set:
+    visible: False
+- match:
+    channel_name: Really
+  set:
+    chan_num: "18"
+- match:
+    channel_name: Really
+    source_id: 6
+    service_id: 53235
+  set:
+    visible: False
+- match:
+    channel_name__re: ^(U&)?Dave$
+  set:
+    channel_name: U&Dave
+    chan_num: "19"
+- match:
+    channel_name__re: ^U&Dave[Jj]a[Vv]u$
+  set:
+    chan_num: "73"
+- match:
+    channel_name: ^U&Dave$
+    source_id: 6
+    service_id: 25112
+  set:
+    visible: False
+- match:
+    channel_name__re: ^(U&)?Drama$
+  set:
+    channel_name: U&Drama
+    chan_num: "20"
+- match:
+    channel_name: U&Drama
+    source_id: 6
+    service_id: 25111
+  set:
+    visible: False
+- match:
+    channel_name__re: ^U&Drama ?\+1$
+  set:
+    chan_num: "21"
+    channel_name: "U&Drama+1"
+    call_sign: "U&Drama+1"
+- match:
+    channel_name: U&Drama+1
+    source_id: 6
+    service_id: 25113
+  set:
+    visible: False
+- match:
+    channel_name__re: ^5 ?USA$
+  set:
+    chan_num: "22"
+    channel_name: "5 USA"
+    call_sign: "5 USA"
+- match:
+    channel_name__re: ^5 ?USA ?\+1$
+  set:
+    chan_num: "23"
+    channel_name: "5 USA+1"
+    call_sign: "5 USA+1"
+- match:
+    channel_name: WildEarth
+  set:
+    chan_num: "26"
+- match:
+    channel_name__re: ^ITV2 ?\+1$
+  set:
+    chan_num: "27"
+    channel_name: "ITV2+1"
+    call_sign: "ITV2+1"
+- match:
+    channel_name__re: ^E4$
+  set:
+    chan_num: "28"
+- match:
+    channel_name: E4
+    source_id: 3
+    service_id: 9241
+  set:
+    visible: False
+- match:
+    channel_name__re: ^E4[+]1$
+  set:
+    chan_num: "29"
+- match:
+    channel_name__re: ^(U&)?W$
+  set:
+    channel_name: U&W
+    chan_num: "24"
+- match:
+    channel_name: wU&W
+    source_id: 6
+    service_id__neq: 6520
+  set:
+    visible: False
+- match:
+    channel_name__re: ^5 ?STAR$
+  set:
+    chan_num: "30"
+    channel_name: "5 STAR"
+    call_sign: "5 STAR"
+- match:
+    channel_name__re: ^5 ?STAR ?\+1$
+  set:
+    chan_num: "31"
+    channel_name: "5 STAR+1"
+    call_sign: "5 STAR+1"
+- match:
+    channel_name__re: ^5 ?ACTION$
+  set:
+    chan_num: "32"
+    channel_name: "5 ACTION"
+    call_sign: "5 ACTION"
+- match:
+    channel_name: Sky Mix
+  set:
+    chan_num: "35"
+- match:
+    channel_name__re: u&yesterday
+  set:
+    channel_name: U&Yesterday
+    chan_num: "36"
+- match:
+    channel_name: DMAX
+  set:
+    chan_num: "38"
+- match:
+    channel_name: DMAX+1
+  set:
+    chan_num: "39"
+- match:
+    channel_name: DMAX
+    source_id: 3
+    service_id: 52440
+  set:
+    visible: False
+- match:
+    channel_name: Quest Red
+  set:
+    chan_num: "40"
+- match:
+    channel_name: Quest Red+1
+  set:
+    chan_num: "41"
+- match:
+    channel_name: Food Network
+  set:
+    chan_num: "42"
+- match:
+    channel_name: Food Network
+    source_id: 3
+    service_id: 53220
+  set:
+    visible: False
+- match:
+    channel_name: GREAT! tv
+  set:
+    chan_num: "49"
+- match:
+    channel_name: GREAT! tv+1
+  set:
+    chan_num: "50"
+- match:
+    channel_name: Eden
+  set:
+    chan_num: "53"
+- match:
+    channel_name: Eden+1
+  set:
+    chan_num: "54"
+- match:
+    channel_name: ITVBe
+  set:
+    chan_num: "56"
+- match:
+    channel_name: ITVBe+1
+  set:
+    chan_num: "57"
+- match:
+    channel_name: U&Eden
+  set:
+    chan_num: "58"
+- match:
+    channel_name: GREAT! romance mix
+  set:
+    chan_num: "64"
+- match:
+    channel_name__re: ^u&yesterday\+1$
+  set:
+    channel_name: U&Yesterday+1
+    chan_num: "74"
+- match:
+    channel_name: Sky Mix HD
+    source_id: 3
+    service_id: 5831
+  set:
+    chan_num: "110"
+- match:
+    channel_name: Sky Mix HD
+    source_id: 3
+    service_id: 5052
+  set:
+    visible: False
+- match:
+    channel_name: movies4men
+  set:
+    chan_num: "37"
+- match:
+    channel_name: Challenge
+  set:
+    chan_num: "47"
+- match:
+    channel_name: 4seven
+  set:
+    chan_num: "48"
+- match:
+    channel_name: Challenge
+    source_id: 6
+    service_id: 6160
+  set:
+    visible: False
+- match:
+    channel_name__re: ^5 ?SELECT$
+  set:
+    chan_num: "55"
+    channel_name: "5 SELECT"
+    call_sign: "5 SELECT"
+- match:
+    channel_name: Quest+1
+  set:
+    chan_num: "69"
+- match:
+    channel_name: U&Yesterday+1
+    source_id: 3
+    service_id: 25116
+  set:
+    visible: False
+- match:
+    channel_name: LEGEND XTRA
+  set:
+    chan_num: "70"
+- match:
+    channel_name: TRUE CRIME XTRA
+  set:
+    chan_num: "71"
+- match:
+    channel_name: E4 Extra
+  set:
+    chan_num: "77"
+- match:
+    channel_name: TalkingPictures TV
+  set:
+    chan_num: "81"
+- match:
+    channel_name: Together TV
+  set:
+    chan_num: "82"
+- match:
+    channel_name: Together TV+1
+  set:
+    chan_num: "83"
+- match:
+    channel_name: That's Melody
+  set:
+    chan_num: "90"
+- match:
+    channel_name__re: ^That's TV( [(]UK[)])?$
+  set:
+    channel_name: That's TV
+    call_sign: That's TV
+    chan_num: "91"
+- match:
+    channel_name: That's TV 2
+  set:
+    chan_num: "92"
+- match:
+    channel_name: That's TV 3
+  set:
+    chan_num: "93"
+- match:
+    channel_name: That's Dance
+  set:
+    chan_num: "94"
+- match:
+    channel_name__re: ^That'?s Memories$
+  set:
+    chan_num: "95"
+- match:
+    channel_name: Rewind TV
+  set:
+    chan_num: "96"
+- match:
+    call_sign: BBC One Lon HD
+    source_id: 3
+    service_id: 10363
+  set:
+    chan_num: "101"
+- match:
+    channel_name__re: ^BBC O(NE|ne) Lon HD$
+  set:
+    chan_num: "101"
+    channel_name: BBC One Lon HD
+- match:
+    channel_name__re: ^BBC T(WO|wo) HD$
+  set:
+    channel_name: BBC Two HD
+    chan_num: "102"
+- match:
+    channel_name: BBC Two HD
+    source_id: 3
+    service_id: 6960
+  set:
+    visible: False
+- match:
+    channel_name: ITV1 HD
+    service_id: 5109
+  set:
+    chan_num: "103"
+- match:
+    channel_name: Channel 4 HD
+  set:
+    chan_num: "104"
+- match:
+    channel_name: Channel 5 HD
+  set:
+    chan_num: "105"
+- match:
+    channel_name__re: ^BBC T(HREE|hree) HD$
+  set:
+    channel_name: BBC Three HD
+    chan_num: "106"
+- match:
+    channel_name: BBC Three HD
+    source_id: 3
+    service_id: 6971
+  set:
+    visible: False
+- match:
+    channel_name__re: ^BBC F(OUR|our) HD$
+  set:
+    channel_name: BBC Four HD
+    chan_num: "107"
+- match:
+    channel_name: BBC Four HD
+    source_id: 6
+    service_id: 10394
+  set:
+    visible: False
+- match:
+    channel_name: Quest HD
+  set:
+    chan_num: "108"
+- match:
+    channel_name: SportyStuff HD
+  set:
+    chan_num: "109"
+- match:
+    channel_name: BBCScotlandHD
+  set:
+    chan_num: "121"
+- match:
+    channel_name: CBBC
+  set:
+    chan_num: "201"
+- match:
+    channel_name: CBBC
+    source_id: 3
+    service_id: 10372
+  set:
+    visible: False
+- match:
+    channel_name: CBeebies
+  set:
+    chan_num: "202"
+- match:
+    channel_name: CBeebies
+    source_id: 6
+    service_id: 6338
+  set:
+    visible: False
+- match:
+    channel_name: CITV
+  set:
+    chan_num: "203"
+- match:
+    channel_name: CBBC HD
+  set:
+    chan_num: "204"
+- match:
+    channel_name: CBBC HD
+    source_id: 6
+    service_id: 6972
+  set:
+    visible: False
+- match:
+    channel_name: CBeebies HD
+  set:
+    chan_num: "205"
+- match:
+    channel_name: POP UP
+  set:
+    chan_num: "206"
+- match:
+    channel_name: CBeebies HD
+    source_id: 3
+    service_id: 10395
+  set:
+    visible: False
+- match:
+    channel_name: BBC News
+  set:
+    chan_num: "230"
+- match:
+    channel_name: Sky News
+  set:
+    chan_num: "231"
+- match:
+    source_id: 3
+    service_id: 6406
+  set:
+    channel_name: Sky News Ireland
+    call_sign: SkyNewsIreland
+    chan_num: "235"
+- match:
+    source_id: 3
+    service_id: 7645
+  set:
+    channel_name: Sky News Arabia
+    call_sign: SkyNewsArabia
+    chan_num: "236"
+- match:
+    channel_name: GB News
+  set:
+    chan_num: "237"
+- match:
+    channel_name: BBC News HD
+  set:
+    chan_num: "240"
+- match:
+    channel_name__re: BBC Parl.*HD
+  set:
+    chan_num: "241"
+- match:
+    channel_name: France 24 HD
+  set:
+    chan_num: "242"
+- match:
+    channel_name__re: BBC (R1|Radio 1)
+  set:
+    channel_name: BBC Radio 1
+    chan_num: "700"
+- match:
+    channel_name__re: BBC R.*1X
+  set:
+    channel_name: BBC Radio 1X
+    chan_num: "701"
+- match:
+    channel_name__re: BBC (R2|Radio 2)
+  set:
+    channel_name: BBC Radio 2
+    chan_num: "702"
+- match:
+    channel_name__re: BBC (R3|Radio 3)
+  set:
+    channel_name: BBC Radio 3
+    chan_num: "703"
+- match:
+    channel_name__re: BBC (R4|Radio 4)
+  set:
+    channel_name: BBC Radio 4
+    chan_num: "704"
+- match:
+    channel_name__re: BBC R.*5.*L.*
+  set:
+    channel_name: BBC Radio 5 Live
+    chan_num: "705"
+- match:
+    channel_name__re: BBC R.*5.*(SX|Live Sports Extra)
+  set:
+    channel_name: BBC Radio 5 Live Sports Extra
+    chan_num: "706"
+- match:
+    channel_name__re: BBC (R6 Music|Radio 6Music)
+  set:
+    channel_name: BBC Radio 6Music
+    call_sign: BBC Radio 6Music
+    chan_num: "707"
+- match:
+    channel_name__re: BBC R.*4 Ex(tra)?
+  set:
+    channel_name: BBC Radio 4 Extra
+    call_sign: BBC Radio 4 Extra
+    chan_num: "708"
+- match:
+    channel_name__re: BBC Asian Net(\.)?
+  set:
+    channel_name: BBC Asian Net
+    chan_num: "709"
+- match:
+    channel_name__re: BBC World Sv(\.)?
+  set:
+    channel_name: BBC World Sv
+    chan_num: "710"
+- match:
+    channel_name: Capital
+  set:
+    chan_num: "724"
+- match:
+    channel_name__re: (Smooth|Smooth Radio)
+  set:
+    channel_name: Smooth Radio
+    chan_num: "726"
+- match:
+    channel_name: talkSPORT
+  set:
+    chan_num: "731"
+- match:
+    channel_name: LBC
+  set:
+    chan_num: "732"
+- match:
+    channel_name: Capital XTRA
+  set:
+    chan_num: "737"
+- match:
+    channel_name: Classic FM
+  set:
+    chan_num: "738"
+- match:
+    channel_name: Gold
+  set:
+    chan_num: "739"
+- match:
+    channel_name: Trans World Radio
+  set:
+    chan_num: "740"
+
+- match:
+    source_id: 1
+    mplex_id__nin:
+      - 7
+      - 235
+      - 271
+      - 245
+      - 236
+      - 237
+      - 238
+  set:
+    visible: False
+
+- match:
+    channel_name__re: CNBC HD
+  set:
+    visible: False
+- match:
+    channel_name: ITV HD
+    source_id: 3
+    service_id__neq: 20840
+  set:
+    visible: False
+- match:
+    channel_name__re: QVC.*
+  set:
+    visible: False
+- match:
+    channel_name__re: adult.*
+  set:
+    visible: False
+- match:
+    channel_name__re: Babe.*
+  set:
+    visible: False
+- match:
+    channel_name__re: Studio 66.*
+  set:
+    visible: False
+- match:
+    channel_name: Hochanda
+  set:
+    visible: False
+- match:
+    channel_name: Gems TV
+  set:
+    visible: False
+- match:
+    channel_name: Hobbymaker
+  set:
+    visible: False
+- match:
+    channel_name: Create & Craft
+  set:
+    visible: False
+- match:
+    channel_name: Craft Extra
+  set:
+    visible: False
+- match:
+    channel_name__re: TJC.*
+  set:
+    visible: False
+- match:
+    channel_name: JewelleryMaker
+  set:
+    visible: False
+- match:
+    channel_name: Create&CraftHD
+  set:
+    visible: False
+- match:
+    channel_name__re: Ideal World.*
+  set:
+    visible: False
+- match:
+    channel_name__re: HobbyMaker
+  set:
+    visible: False
+- match:
+    channel_name__re: Jewellery Maker
+  set:
+    visible: False
+- match:
+    channel_name: SonLife
+  set:
+    visible: False
+- match:
+    channel_name__re: TCC
+  set:
+    visible: False
+- match:
+    channel_name: TBN UK
+  set:
+    visible: False
+- match:
+    channel_name: ETV4
+  set:
+    visible: False
+- match:
+    channel_name: Shop On TV
+  set:
+    visible: False
+- match:
+    channel_name: WION HD
+  set:
+    visible: False
+- match:
+    channel_name: Word Network
+  set:
+    visible: False
+- match:
+    channel_name: WRN Europe
+  set:
+    visible: False
+
+- match:
+    channel_name__re: ^\d+$
+  set:
+    visible: False
+- match:
+    call_sign__re: ^\d+$
+  set:
+    visible: False
+- match:
+    source_id: 6
+  set:
+    visible: False
+- match:
+    source_id: 4
+  set:
+    visible: False
+- match:
+    source_id: 5
+  set:
+    visible: False
